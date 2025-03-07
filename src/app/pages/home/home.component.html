@@ -1,0 +1,16 @@
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-8">Shop by Category</h1>
+  
+  <div *ngIf="isLoading" class="text-center py-8">
+    Loading...
+  </div>
+
+  <div *ngIf="error" class="text-red-600 text-center py-8">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!isLoading && !error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <app-category-card *ngFor="let category of categories" [category]="category">
+    </app-category-card>
+  </div>
+</div>
